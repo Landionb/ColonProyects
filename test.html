@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <style>
+        body { background: #121212; color: white; }
+        .screen { display: none; }
+        .active { display: block; }
+    </style>
+</head>
+<body>
+    <div id="main-menu" class="screen active">
+        <button id="play-btn">JUGAR</button>
+    </div>
+    
+    <div id="game-screen" class="screen">
+        <h1>JUEGO</h1>
+        <button id="exit-btn">SALIR</button>
+    </div>
+
+    <script>
+        document.getElementById('play-btn').addEventListener('click', () => {
+            document.getElementById('main-menu').classList.remove('active');
+            document.getElementById('game-screen').classList.add('active');
+        });
+        
+        document.getElementById('exit-btn').addEventListener('click', () => {
+            document.getElementById('game-screen').classList.remove('active');
+            document.getElementById('main-menu').classList.add('active');
+        });
+    </script>
+</body>
+</html>

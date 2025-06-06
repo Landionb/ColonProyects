@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Cartas</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?	family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-	awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div id="app">
+        <!-- Pantalla de Menú Principal -->
+        <div id="main-menu" class="screen active">
+            <div class="menu-container">
+                <h1 class="game-title">JUEGO DE CARTAS</h1>
+                <div class="menu-options">
+                    <button id="play-btn" class="menu-btn">
+                        <i class="fas fa-play"></i> JUGAR
+                    </button>
+                    <button id="deck-editor-btn" class="menu-btn">
+                        <i class="fas fa-edit"></i> CREAR/MODIFICAR BARAJA
+                    </button>
+                    <button id="options-btn" class="menu-btn">
+                        <i class="fas fa-cog"></i> OPCIONES
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla de Juego -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <button id="exit-game-btn" class="exit-btn">
+                    <i class="fas fa-times"></i> SALIR
+                </button>
+            </div>
+            <div id="game-container">
+                <div class="player-area">
+                    <h2>Jugador 1</h2>
+                    <div id="player-hand" class="hand"></div>
+                </div>
+                <div class="play-area"></div>
+                <div class="player-area">
+                    <h2>Jugador 2</h2>
+                    <div id="opponent-hand" class="hand"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla de Editor de Baraja -->
+        <div id="deck-editor-screen" class="screen">
+            <div class="editor-header">
+                <button id="exit-editor-btn" class="exit-btn">
+                    <i class="fas fa-times"></i> VOLVER
+                </button>
+                <h2>Editor de Baraja</h2>
+            </div>
+            <div class="editor-container">
+                <div class="card-list">
+                    <!-- Aquí se generarán las cartas disponibles -->
+                </div>
+                <div class="editor-controls">
+                    <button id="add-card-btn" class="editor-btn">
+                        <i class="fas fa-plus"></i> Añadir Carta
+                    </button>
+                    <button id="save-deck-btn" class="editor-btn">
+                        <i class="fas fa-save"></i> Guardar Baraja
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla de Opciones -->
+        <div id="options-screen" class="screen">
+            <div class="options-header">
+                <button id="exit-options-btn" class="exit-btn">
+                    <i class="fas fa-times"></i> VOLVER
+                </button>
+                <h2>Opciones</h2>
+            </div>
+            <div class="options-container">
+                <div class="option-item">
+                    <label for="volume-control">Volumen:</label>
+                    <input type="range" id="volume-control" min="0" max="100" value="50">
+                </div>
+                <div class="option-item">
+                    <label for="fullscreen-toggle">Pantalla Completa:</label>
+                    <input type="checkbox" id="fullscreen-toggle">
+                </div>
+                <button id="reset-options-btn" class="options-btn">
+                    Restablecer Valores Predeterminados
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/deck-editor.js"></script>
+<script>
+    // Evitar zoom en móviles
+    document.addEventListener('gesturestart', function(e) {
+        e.preventDefault();
+    });
+    
+    // Ocultar barra de direcciones en móviles
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            window.scrollTo(0, 1);
+        }, 0);
+    });
+</script>
+</body>
+</html>
